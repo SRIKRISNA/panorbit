@@ -1,13 +1,14 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import './style.scss';
-import {  useNavigate, Link, NavLink} from 'react-router-dom';
+import { useNavigate, Link, NavLink } from 'react-router-dom';
 import Profile from './Profile';
+import Header from './Header';
 
 const LandingPage = () => {
     const [userData, setUserData] = useState([]);
-    const [user, setUser ] = useState("");
-    const navigate= useNavigate();
+    const [user, setUser] = useState("");
+    const navigate = useNavigate();
 
     useEffect(() => {
         fetchData();
@@ -30,19 +31,29 @@ const LandingPage = () => {
                 <div className="landing-header">
                     <h4>Select An Account</h4>
                 </div>
-                    <div className="user-lists">
-                        {
-                            userData.map((user, idx) => (
-                                <div key={idx}>
-                                    
-                    <img src={user.profilepicture} width="35px" id='pic' alt='pic'></img>
-                    <span id='userName' onClick={(e) => viewProfile(e, user.id)}> {user.name}</span>
-                                    {/* <Profile id={user.id} /> */}
-                                </div>
-                            ))
-                        }
-                    </div>
-                   
+                <div className="user-lists">
+                    {
+                        userData.map((user, idx) => (
+                            <div key={idx}>
+
+                                <img src={user.profilepicture} width="35px" id='pic' alt='pic'></img>
+                                <span id='userName' onClick={(e) => viewProfile(e, user.id)}> {user.name}</span>
+                                {/* <Profile id={user.id} /> */}
+                                <hr></hr>
+                            </div>
+                        ))
+                    }
+                </div>
+                <div className="user-lists">
+                    {
+                        userData.map((user, idx) => (
+                            <div key={idx}>
+                                <Header name={user.name} pic={user.profilepicture}  />                                
+                            </div>
+                        ))
+                    }
+                </div>
+
             </div>
         </div>
     )

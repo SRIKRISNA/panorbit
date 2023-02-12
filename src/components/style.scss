@@ -27,3 +27,12 @@
 #userName, #pic{
     vertical-align: middle;
 }
+#userName, button{
+    cursor: pointer;
+}
+// header
+.header-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
