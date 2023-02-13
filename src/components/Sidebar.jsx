@@ -1,13 +1,15 @@
 import React from 'react'
+import './style.scss';
+import {Link} from 'react-router-dom';
 
 const Sidebar = () => {
   return (
-    <div>
+    <div className='sidebar-container'>
         <ul>
-            <li>Profile</li>
-            <li>Posts</li>
-            <li>Gallery</li>
-            <li>ToDo</li>
+            <Link to='/profile/:id'> <li>Profile</li></Link><hr/>
+            <Link to='/comingsoon'> <li>Posts</li></Link><hr/>
+            <Link to='/comingsoon'> <li>Gallery</li></Link><hr/>
+            <Link to='/comingsoon'> <li>ToDo</li></Link>
         </ul>
     </div>
   )
